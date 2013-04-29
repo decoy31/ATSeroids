@@ -9,6 +9,7 @@
 <script src="vector.js"></script>
 <script src="path.js"></script>
 <script src="sprite.js"></script>
+<script src="weapon.js"></script>
 <script src="ship.js"></script>
 <script type="text/javascript">
     var v = new Vector(3, 4);
@@ -66,11 +67,13 @@
      * @type {Array.<Sprite>}
      */
     var extraLives = [];
+    // Create the ship.
     var ship = new Ship(canvas.width * 0.5, canvas.height * 0.5, bounds);
     ship.path = new Path('<path id="svg_3" d="m203,273l63,-183l66,183l-63,-33l-66,33z" stroke-width="5" stroke="#000000" fill="#FF0000"/>');
     ship.path = ship.path.normalize().scale(0.25);
     ship.recalcCollisionRadius();
     console.log(ship);
+
     for (var i = 0; i < 3; i++) {
         var life = new Sprite(i * 40 + 30, canvas.height - 30, 100, 100, false);
         life.path = ship.path.scale(0.6);

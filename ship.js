@@ -2,12 +2,13 @@
  *
  * @param {number} x
  * @param {number} y
- * @param {Sprite.wrap} bounds
+ * @param {Rect|boolean} bounds
  * @returns {Ship}
  * @class
  * @augments Sprite
  * @requires Sprite
  * @requires Vector
+ * @requires Weapon
  */
 function Ship (x, y, bounds) {
     "use strict";
@@ -17,6 +18,7 @@ function Ship (x, y, bounds) {
     this.rotationalAcceleration = 720;
     this.maxRotationalVelocity = 180;
     this.maxVelocity = 500;
+    this.weapon = new Weapon();
     this.controls = {
         up: false,
         left: false,
@@ -129,6 +131,11 @@ Ship.prototype.update = function () {
 
     if (this.velocity.size() > this.maxVelocity) {
         this.velocity = this.velocity.scale(this.maxVelocity / this.velocity.size());
+    }
+
+    if (this.controls.fire) {
+        this.log();
+//        console.log('firing!', this.rotation);
     }
 
     return this;

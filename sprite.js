@@ -4,7 +4,7 @@
  * @param {number} y
  * @param {number} width
  * @param {number} height
- * @param {{ w: number, h: number, position: { x: number, y: number }}|boolean} [wrapBounds=false]
+ * @param {Rect|boolean} [wrapBounds=false]
  * @returns {Sprite}
  * @requires Vector
  * @requires Path
@@ -24,7 +24,7 @@ function Sprite (x, y, width, height, wrapBounds) {
     this.elapsedTime = 0.0;
 
     /**
-     * @type {{ w: number, h: number, position: { x: number, y: number }} | boolean}
+     * @type {Rect|boolean}
      */
     this.wrap = typeof wrapBounds !== 'undefined' ? wrapBounds : false;
     /**
