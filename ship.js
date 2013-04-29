@@ -5,6 +5,7 @@
  * @param {Sprite.wrap} bounds
  * @returns {Ship}
  * @class
+ * @augments Sprite
  * @requires Sprite
  * @requires Vector
  */
@@ -89,6 +90,9 @@ Ship.prototype.log = function () {
     return this;
 };
 
+/**
+ * @returns {Ship}
+ */
 Ship.prototype.update = function () {
     "use strict";
 
